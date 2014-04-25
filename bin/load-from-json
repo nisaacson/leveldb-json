@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var yargs = require('yargs')
+var argv = yargs.demand(['file', 'db']).usage(usage()).example(example()).argv
+
+var load = require('../lib/load')
+load(argv.file)
+
+function usage() {
+  return 'Dump all existing entries in the database to a json file. The resulting file can be loaded later with bin/load-from-json'
+}
+
+function example() {
+  return '$0 --file /output/path/to/keys/file --db /path/to/leveldb'
+}
