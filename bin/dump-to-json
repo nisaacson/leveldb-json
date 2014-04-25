@@ -1,9 +1,24 @@
 #!/usr/bin/env node
 
-var argv = require('yargs').demand(['file', 'db']).usage(usage()).example(example(), 'write to file specified').argv
+var yargs = require('yargs')
+var path = require('path')
+var argv = yargs.demand(['file', 'db']).usage(usage()).example(example(), 'write to file specified').argv
+var dumpToJson = require('../lib/dump')
 
-var dumpToJson = require('../lib/dump-to-json')
-dumpToJson(argv.file)
+var dbPath = path.resolve(argv.db)
+var filePath = path.resolve(argv.file)
+
+var db = require('../lib/db')(dbPath)
+
+var writer = dumpToJson(filePath, db)
+
+writer.on('dumped', function(chunk) {
+  var row = JSON.parse(chunk)
+  console.log('dumped row, key: ' + row.key + ', value: ' + row.value)
+})
+writer.on('finish', function() {
+  console.log('wrote to json file:\n' + filePath + '\n')
+})
 
 function usage() {
   return 'Dump all existing entries in the database to a json file. The resulting file can be loaded later with bin/load-from-json'
