@@ -1,6 +1,7 @@
 # LevelDB JSON Load and Dump
 
 [![Build Status](https://travis-ci.org/nisaacson/leveldb-json.svg?branch=master)](https://travis-ci.org/nisaacson/leveldb-json)
+[![NPM](https://nodei.co/npm/leveldb-json.png?downloads=true)](https://nodei.co/npm/leveldb-json/)
 
 # Installation
 
