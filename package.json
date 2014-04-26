@@ -1,6 +1,6 @@
 {
   "name": "leveldb-json",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Leveldb import & export with json",
   "main": "index.js",
   "scripts": {
