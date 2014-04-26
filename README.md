@@ -1,5 +1,7 @@
 # LevelDB JSON Load and Dump
 
+[![Build Status](https://travis-ci.org/nisaacson/leveldb-json.svg?branch=master)](https://travis-ci.org/nisaacson/leveldb-json)
+
 # Installation
 
 ```bash
