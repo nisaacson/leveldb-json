@@ -6,6 +6,10 @@
   "scripts": {
     "test": "make test"
   },
+  "bin": {
+    "leveldb-dump-to-json": "bin/dump-to-json",
+    "leveldb-load-from-json": "bin/load-from-json"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/nisaacson/leveldb-json.git"
